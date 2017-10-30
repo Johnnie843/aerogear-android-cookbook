@@ -1,8 +1,8 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "org.jboss.aerogear.android.cookbook.aerodoc"
@@ -25,25 +25,28 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }
 
-dependencies {
-    compile 'com.android.support:appcompat-v7:26.0.1'
-    compile 'com.android.support:design:26.0.1'
-    compile 'org.jboss.aerogear:aerogear-android-store:3.0.1'
-    compile 'org.jboss.aerogear:aerogear-android-auth:3.0.0'
-    compile 'org.jboss.aerogear:aerogear-android-pipe:3.1.0'
-    compile 'org.jboss.aerogear:aerogear-android-push:4.1.0'
-    compile 'com.google.firebase:firebase-messaging:11.0.4'
-    // Google play-services version need to be the same of firebase to avoid conflit :/
-    compile 'com.google.android.gms:play-services-location:11.0.4'
-    compile 'com.github.hotchemi:permissionsdispatcher:2.3.1'
-    compile 'com.afollestad.material-dialogs:core:0.9.3.0'
-
-    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
+ext {
+    android_support_library = "26.1.0"
+    firebase_library = '11.4.2'
 }
 
-apply plugin: 'com.google.gms.google-services'
+dependencies {
+    implementation "com.android.support:appcompat-v7:${android_support_library}"
+    implementation "com.android.support:design:${android_support_library}"
+    implementation "org.jboss.aerogear:aerogear-android-auth:4.0.0"
+    implementation "org.jboss.aerogear:aerogear-android-push:5.0.0"
+    implementation "com.google.firebase:firebase-messaging:${firebase_library}"
+    // Google play-services version need to be the same of firebase to avoid conflit :/
+    implementation "com.google.android.gms:play-services-location:${firebase_library}"
+    implementation "com.github.hotchemi:permissionsdispatcher:2.3.1"
+    implementation "com.afollestad.material-dialogs:core:0.9.4.7"
+
+    annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:2.3.1"
+}
+
+apply plugin: "com.google.gms.google-services"
