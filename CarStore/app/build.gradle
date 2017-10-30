@@ -1,15 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "org.jboss.aerogear.android.cookbook.carstore"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 4
-        versionName "3.0.0"
+        versionCode 5
+        versionName "4.0.0"
 
     }
 
@@ -25,13 +25,17 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }
 
+ext {
+    android_support_library = "26.1.0"
+}
+
 dependencies {
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
-    compile 'org.jboss.aerogear:aerogear-android-store:3.0.2'
+    implementation "com.android.support:appcompat-v7:${android_support_library}"
+    implementation "com.android.support:design:${android_support_library}"
+    implementation "org.jboss.aerogear:aerogear-android-store:4.0.0"
 }
