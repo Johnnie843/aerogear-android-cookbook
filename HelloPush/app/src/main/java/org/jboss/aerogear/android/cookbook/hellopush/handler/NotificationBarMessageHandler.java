@@ -24,8 +24,6 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
-import org.jboss.aerogear.android.unifiedpush.MessageHandler;
-import org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.cookbook.hellopush.HelloWorldApplication;
 import org.jboss.aerogear.android.cookbook.hellopush.R;
 import org.jboss.aerogear.android.cookbook.hellopush.activities.MessagesActivity;
@@ -41,6 +39,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
     @Override
     public void onMessage(Context context, Bundle bundle) {
+
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
 
         HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
